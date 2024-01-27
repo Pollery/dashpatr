@@ -101,7 +101,7 @@ df_faturas_nu = df_faturas_nu.sort_values("date").reset_index(drop=True)
 df_faturas_nu["amount"] = pd.to_numeric(df_faturas_nu["amount"], errors="coerce")
 df_faturas_nu["Estabelecimento"] = df_faturas_nu["title"]
 df_faturas_nu["IF"] = "NU"
-df_faturas_nu["Portador"] = "MARCOS POLLERY"
+df_faturas_nu["Portador"] = "MP"
 extracted_title = df_faturas_nu["Estabelecimento"].str.extract(r"\*(.*?)\s*(\d+/\d+|$)").get(0)
 df_faturas_nu["title"] = extracted_title.fillna(df_faturas_nu["Estabelecimento"])
 df_faturas_nu["Parcela"] = df_faturas_nu["Estabelecimento"].str.extract(r"(\d+/\d+)$").replace("/", " de ", regex=True)
